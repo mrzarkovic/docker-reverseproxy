@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  reverseproxy:
+    depends_on:
+      - nginx
+      - apache
+    build: ./reverseproxy
+    ports:
+      - 80:80
+    restart: always
+
+  nginx:
+    build: ./php-7-nginx
+    restart: always
+    volumes:
+      - ./php-5-6-apache/public:/var/www/html
+
+  apache:
+    build: ./php-5-6-apache
+    restart: always
+    volumes:
+      - ./php-7-nginx/public:/var/www/html
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=db_user
+      - MYSQL_PASSWORD=db_pass
