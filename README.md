@@ -24,3 +24,5 @@
 
 </VirtualHost>
 ```
+
+- From root, run `docker-compose up -d`. Docker will build the containers and copy contents of 'php-5-6-apache' and 'php-7-nginx'\`s `public` directories to the virtual machines `/var/www/html` direcories.
