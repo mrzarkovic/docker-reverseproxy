@@ -1,6 +1,7 @@
 # Docker Reverse Proxy
 
 The idea is to have two separate servers, apache running php5.6 and mysql and nginx with php7.
+Read more about how to setup Nginx reverse proxy in [this](https://www.thepolyglotdeveloper.com/2017/03/nginx-reverse-proxy-containerized-docker-applications/) blog post.
 
 ## Apache 
 
