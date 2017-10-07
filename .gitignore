@@ -1,3 +1,7 @@
 db_data/*
 php-5-6-apache/public/*
 php-7-nginx/public/*
+
+# exception to the rule
+!php-5-6-apache/public/.gitkeep
+!php-7-nginx/public/.gitkeep 

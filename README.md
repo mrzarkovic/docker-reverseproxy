@@ -8,6 +8,7 @@ Read more about how to setup Nginx reverse proxy in [this](https://www.thepolygl
 - In `php-5-6-apache/public` add a directory with a website project e.g. `mywebsite1.dev`
 - In `php-5-6-apache/000-default.conf` set up virtual hosts for your website project
 
+
 ```
 # 000-default.conf
 
