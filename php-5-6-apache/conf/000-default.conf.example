@@ -2,11 +2,11 @@
 
 <VirtualHost *:80>
   ServerAdmin me@mydomain.com
-  ServerName mywebsite1.dev
-  ServerAlias mywebsite1.dev
-  DocumentRoot /var/www/html/mywebsite1.dev
+  ServerName example1.dev
+  ServerAlias example1.dev
+  DocumentRoot /var/www/html/example1.dev
 
-  <Directory /var/www/html/mywebsite1.dev>
+  <Directory /var/www/html/example1.dev>
       Options Indexes FollowSymLinks MultiViews
       AllowOverride All
       Order deny,allow

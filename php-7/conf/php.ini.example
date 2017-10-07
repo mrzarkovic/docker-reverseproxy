@@ -1,0 +1,4 @@
+date.timezone = "US/Central"
+log_errors = On
+display_errors = On
+html_errors = 1

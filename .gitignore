@@ -1,7 +1,16 @@
 db_data/*
 php-5-6-apache/public/*
-php-7-nginx/public/*
+php-5-6-apache/conf/*
+php-7/conf/*
+php-7/public/*
+nginx/conf/*
+reverseproxy/nginx.conf
 
 # exception to the rule
-!php-5-6-apache/public/.gitkeep
-!php-7-nginx/public/.gitkeep 
+!php-5-6-apache/public/example1.dev
+!php-5-6-apache/conf/000-default.conf.example
+!php-5-6-apache/conf/php.ini.example
+!php-7/conf/php.ini.example
+!php-7/conf/pgp-fpm.conf.example
+!php-7/public/example2.dev
+!nginx/conf/site.conf.example

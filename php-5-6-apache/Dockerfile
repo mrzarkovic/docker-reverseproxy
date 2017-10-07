@@ -12,10 +12,6 @@ RUN docker-php-source extract \
   && a2enmod headers \
 	&& docker-php-source delete
 
-ADD php.ini /usr/local/etc/php/php.ini
-
-# Copy this repo into place.
 ADD public /var/www/html
-
-# Update the default apache site with the config we created.
-ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
+ADD conf/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+ADD conf/php.ini /usr/local/etc/php/php.ini

@@ -1,9 +1,9 @@
 server {
     index index.php index.html;
-    server_name mywebsite2.dev;
+    server_name example2.dev;
     error_log  /var/log/nginx/error.log;
     access_log /var/log/nginx/access.log;
-    root /mywebsite2.dev;
+    root /var/www/html/example2.dev;
 
     location ~ \.php$ {
         try_files $uri =404;

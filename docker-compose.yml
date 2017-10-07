@@ -3,24 +3,36 @@ version: '2'
 services:
   reverseproxy:
     depends_on:
-      - nginx
-      - apache
+      - nginx_web
+      - apache_web
     build: ./reverseproxy
     ports:
       - 80:80
     restart: always
+    volumes:
+      - ./reverseproxy/nginx.conf:/etc/nginx/nginx.conf
 
-  nginx:
-    build: ./php-7-nginx
+  nginx_web:
+    build: ./nginx
     restart: always
     volumes:
-      - ./php-5-6-apache/public:/var/www/html
+      - ./nginx/public:/var/www/html
+      - ./nginx/conf/site.conf:/etc/nginx/conf.d/site.conf
 
-  apache:
+  php7:
+    build: ./php-7
+    restart: always
+    volumes:
+      - ./nginx/public:/var/www/html
+      - ./php-7/conf/php-fpm.conf:/usr/local/etc/php-fpm.d/zz-php-fpm.conf
+      - ./php-7/conf/php.ini:/usr/local/etc/php/php.ini
+
+  apache_web:
     build: ./php-5-6-apache
     restart: always
     volumes:
-      - ./php-7-nginx/public:/var/www/html
+      - ./php-5-6-apache/public:/var/www/html
+      - ./php-5-6-apache/conf:/etc/apache2/sites-enabled
 
   db:
     image: mysql:5.7
