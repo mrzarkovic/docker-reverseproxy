@@ -4,6 +4,7 @@ php-5-6-apache/conf/*
 php-7/conf/*
 nginx/public/*
 nginx/conf/*
+node/public/*
 reverseproxy/nginx.conf
 
 # exception to the rule
