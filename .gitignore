@@ -5,13 +5,12 @@ php-7/conf/*
 nginx/public/*
 nginx/conf/*
 reverseproxy/nginx.conf
-node/frontend/*
 
 # exception to the rule
-!php-5-6-apache/public/example1.dev/.gitkeep
+!php-5-6-apache/public/example1.dev
 !php-5-6-apache/conf/000-default.conf.example
 !php-5-6-apache/conf/php.ini.example
 !php-7/conf/php.ini.example
 !php-7/conf/php-fpm.conf.example
-!nginx/public/example2.dev/.gitkeep
+!nginx/public/example2.dev
 !nginx/conf/site.conf.example
