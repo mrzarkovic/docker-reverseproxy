@@ -3,8 +3,7 @@ version: '2'
 services:
   reverseproxy:
     depends_on:
-      - nginx_web
-      - apache_web
+      - node_web
     build: ./reverseproxy
     ports:
       - 80:80
@@ -12,36 +11,43 @@ services:
     volumes:
       - ./reverseproxy/nginx.conf:/etc/nginx/nginx.conf
 
-  nginx_web:
-    build: ./nginx
-    restart: always
-    volumes:
-      - ./nginx/public:/var/www/html
-      - ./nginx/conf/site.conf:/etc/nginx/conf.d/site.conf
+#  nginx_web:
+#    build: ./nginx
+#    restart: always
+#    volumes:
+#      - ./nginx/public:/var/www/html
+#      - ./nginx/conf/site.conf:/etc/nginx/conf.d/site.conf
+#
+#  php7:
+#    build: ./php-7
+#    restart: always
+#    volumes:
+#      - ./nginx/public:/var/www/html
+#      - ./php-7/conf/php.ini:/usr/local/etc/php/php.ini
+#
+#  apache_web:
+#    build: ./php-5-6-apache
+#    restart: always
+#    volumes:
+#      - ./php-5-6-apache/public:/var/www/html
+#      - ./php-5-6-apache/conf:/etc/apache2/sites-enabled
 
-  php7:
-    build: ./php-7
+  node_web:
+    build: ./node
     restart: always
-    volumes:
-      - ./nginx/public:/var/www/html
-      - ./php-7/conf/php-fpm.conf:/usr/local/etc/php-fpm.d/zz-php-fpm.conf
-      - ./php-7/conf/php.ini:/usr/local/etc/php/php.ini
-
-  apache_web:
-    build: ./php-5-6-apache
-    restart: always
-    volumes:
-      - ./php-5-6-apache/public:/var/www/html
-      - ./php-5-6-apache/conf:/etc/apache2/sites-enabled
-
-  db:
-    image: mysql:5.7
     ports:
-      - "3306:3306"
+      - 3000:3000
     volumes:
-      - ./db_data:/var/lib/mysql
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=db_user
-      - MYSQL_PASSWORD=db_pass
+      - .node/public:/home/app
+
+#  db:
+#    image: mysql:5.7
+#    ports:
+#      - "3306:3306"
+#    volumes:
+#      - ./db_data:/var/lib/mysql
+#    restart: always
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=root
+#      - MYSQL_USER=db_user
+#      - MYSQL_PASSWORD=db_pass

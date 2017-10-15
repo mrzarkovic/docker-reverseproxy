@@ -1,3 +1,4 @@
+.idea/
 db_data/*
 php-5-6-apache/public/*
 php-5-6-apache/conf/*
